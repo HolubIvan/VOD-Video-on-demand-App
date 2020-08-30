@@ -1,9 +1,10 @@
 import React from 'react';
+import {Wrapper, Header1, Nav, Ul, List} from './../../styles/StyledComponents';
 
 const NotFound = ()=>{
 
     return(
-        <h1 className='not-found'>Your film not found, sorry!</h1>
+        <Header1>Your film not found, sorry!</Header1>
     );
 }
 

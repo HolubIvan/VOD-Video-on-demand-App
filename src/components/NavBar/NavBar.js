@@ -1,23 +1,36 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import {
+  Wrapper,
+  Header1,
+  Nav,
+  Ul,
+  List,
+} from "./../../styles/StyledComponents";
+import "./NavBar.scss";
 
-const NavBar = ()=>{
-
-    return(
-        <nav className='nav'>
-            <ul className='nav__list'>
-                <li className='nav__item'>
-                    <NavLink to='/' className="nav__link">Home</NavLink>
-                </li>
-                <li className='nav__item'>
-                    <NavLink to='/categories' className="nav__link">Categories</NavLink>
-                </li>
-                <li className='nav__item'>
-                    <NavLink to='/popular' className="nav__link">Popular</NavLink>
-                </li>
-            </ul>
-        </nav>
-    );
-}
+const NavBar = () => {
+  return (
+    <Nav>
+      <Ul>
+        <List>
+          <NavLink to="/" className="nav__link">
+            Home
+          </NavLink>
+        </List>
+        <List>
+          <NavLink to="/categories" className="nav__link">
+            Categories
+          </NavLink>
+        </List>
+        <List>
+          <NavLink to="/popular" className="nav__link">
+            Popular
+          </NavLink>
+        </List>
+      </Ul>
+    </Nav>
+  );
+};
 
 export default NavBar;

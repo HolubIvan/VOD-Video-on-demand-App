@@ -1,9 +1,11 @@
 import React from 'react';
+import {Wrapper, Header1, Nav, Ul, List} from './../../styles/StyledComponents';
+
 
 const Home = ()=>{
 
     return(
-        <h1 className='home-header'>Home</h1>
+        <Header1>Home</Header1>
     );
 }
 

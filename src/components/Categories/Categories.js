@@ -1,9 +1,11 @@
 import React from 'react';
+import {Wrapper, Header1, Nav, Ul, List} from './../../styles/StyledComponents';
+
 
 const Categories = ()=>{
 
     return(
-        <h1 className='categories-header'>Categories</h1>
+        <Header1>Categories</Header1>
     );
 }
 

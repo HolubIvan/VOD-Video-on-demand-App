@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import {
+  Wrapper,
+  Header1,
+  Nav,
+  Ul,
+  List,
+} from "./../../styles/StyledComponents";
 
-const Popular = ()=>{
+import { popular } from "./../App";
 
-    return(
-        <h1 class='popular-header'>Popular</h1>
-    );
-}
+const Popular = () => {
+  useEffect(() => {});
+
+  return <Header1>Popular</Header1>;
+};
 
 export default Popular;
