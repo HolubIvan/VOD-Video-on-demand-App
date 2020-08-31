@@ -1,6 +1,11 @@
-.nav__link{
-    text-decoration: none;
-    font-size: 2.6rem;
-    color: #fff;
-    font-weight: 300;
+.nav__link {
+  text-decoration: none;
+  font-size: 2.6rem;
+  color: #fff;
+  font-weight: 300;
+  transition: all 0.3s;
+}
+
+.nav__link:hover {
+  color: coral;
 }

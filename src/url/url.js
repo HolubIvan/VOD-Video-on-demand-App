@@ -11,6 +11,7 @@ const videosOfFilmYoutubeUrl = `${urlExample}api/vod/asset/577922/videos`;
 const popularUrl = `${urlExample}api/vod/popular`;
 const searchUrl = `${urlExample}api/vod/search?q={QUERY_STRING}`;
 const discoverUrl = `${urlExample}api/vod/discover`;
+const imageForCategoriesUrl = "https://image.tmdb.org/t/p/w500";
 
 export {
   menuUrl,
@@ -21,4 +22,5 @@ export {
   popularUrl,
   searchUrl,
   discoverUrl,
+  imageForCategoriesUrl,
 };

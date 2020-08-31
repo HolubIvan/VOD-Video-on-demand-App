@@ -18,13 +18,13 @@ const Categories = () => {
 
   useEffect(() => {
     (async function getCategories() {
-      const data = await serviceCategories(categoriesUrl);
-      setCategoriesData(data);
+      const dataCategories = await serviceCategories(categoriesUrl);
+      setCategoriesData(dataCategories);
     })();
   }, []);
 
   if (categoriesData) {
-    const array = categoriesData.data.genres.map((el) => {
+    const arrayOfCategoriest = categoriesData.data.genres.map((el) => {
       return (
         <Categorie key={el.id}>
           <CategorieName>{el.name}</CategorieName>
@@ -35,7 +35,7 @@ const Categories = () => {
     return (
       <>
         <Header2>Categories</Header2>
-        <CategoriesWrapper>{array}</CategoriesWrapper>
+        <CategoriesWrapper>{arrayOfCategoriest}</CategoriesWrapper>
       </>
     );
   } else {

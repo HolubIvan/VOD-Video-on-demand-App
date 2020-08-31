@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   max-width: 1440px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
+  padding-bottom: 2rem;
   background-color: ${({ theme }) => theme.colorBlueLight || "#000"};
 `;
 
@@ -14,13 +15,6 @@ const Header1 = styled.h1`
   text-align: center;
   margin-top: 5rem;
   transition: all 0.3s;
-
-  &:hover {
-    color: ${({ theme }) => theme.colorOrange || "#fff"};
-  }
-  &:active {
-    transform: scale(1.1);
-  }
 `;
 
 const Header2 = styled.h2`
@@ -30,6 +24,19 @@ const Header2 = styled.h2`
   margin: 3rem auto;
   text-align: center;
 `;
+
+const Paragraph = styled.p`
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 1rem;
+`;
+
+const ParagraphBig = styled(Paragraph)`
+  font-size: 3rem;
+`;
+
+// CATEGORIES
 
 const CategoriesWrapper = styled.div`
   display: grid;
@@ -67,6 +74,40 @@ const CategorieName = styled.p`
   height: 70px;
 `;
 
+// POPULAR
+
+const PopularWrapper = styled(CategoriesWrapper)`
+  grid-template-columns: repeat(5, 1fr);
+`;
+
+const PopularFilm = styled.div`
+  width: 220px;
+  height: 320px;
+  position: relative;
+  cursor: pointer;
+
+  &:hover * {
+    display: block;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const DescriptionPopular = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2932419e;
+  display: none;
+`;
+
+// NAVIGATION
+
 const Nav = styled.nav`
   width: 100%;
   height: 60px;
@@ -78,12 +119,13 @@ const Ul = styled.ul`
   display: flex;
   justify-content: flex-end;
   align-content: center;
+  height: 100%;
 `;
 
 const List = styled.li`
   list-style: none;
   margin: 0 3rem;
-  margin-top: 1.8rem;
+  line-height: 60px;
 `;
 
 export {
@@ -96,4 +138,10 @@ export {
   CategoriesWrapper,
   Categorie,
   CategorieName,
+  PopularWrapper,
+  PopularFilm,
+  Image,
+  DescriptionPopular,
+  Paragraph,
+  ParagraphBig,
 };
