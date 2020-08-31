@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
-import {
-  Wrapper,
-  Header1,
-  Nav,
-  Ul,
-  List,
-} from "./../../styles/StyledComponents";
-
-import { popular } from "./../App";
+import React from "react";
+import { Header1 } from "./../../styles/StyledComponents";
+import servicePopular from "../Services/servicePopular";
+import { popularUrl } from "./../../url/url";
 
 const Popular = () => {
-  useEffect(() => {});
+  const popularFilms = servicePopular(popularUrl);
 
   return <Header1>Popular</Header1>;
 };

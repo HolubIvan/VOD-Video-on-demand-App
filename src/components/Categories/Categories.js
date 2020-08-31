@@ -1,12 +1,11 @@
-import React from 'react';
-import {Wrapper, Header1, Nav, Ul, List} from './../../styles/StyledComponents';
+import React from "react";
+import { Header1 } from "./../../styles/StyledComponents";
+import serviceCategories from "./../Services/serviceCategories";
+import { categoriesUrl } from "./../../url/url";
 
-
-const Categories = ()=>{
-
-    return(
-        <Header1>Categories</Header1>
-    );
-}
+const Categories = () => {
+  const data = serviceCategories(categoriesUrl);
+  return <Header1>Categories</Header1>;
+};
 
 export default Categories;
