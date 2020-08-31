@@ -23,6 +23,10 @@ const Categories = () => {
     })();
   }, []);
 
+  const listenClick = (e) => {
+    console.log(e.target);
+  };
+
   if (categoriesData) {
     const arrayOfCategoriest = categoriesData.data.genres.map((el) => {
       return (
@@ -35,7 +39,9 @@ const Categories = () => {
     return (
       <>
         <Header2>Categories</Header2>
-        <CategoriesWrapper>{arrayOfCategoriest}</CategoriesWrapper>
+        <CategoriesWrapper onClick={listenClick}>
+          {arrayOfCategoriest}
+        </CategoriesWrapper>
       </>
     );
   } else {

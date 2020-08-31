@@ -3,16 +3,24 @@ export default class DataLoader {
     this.url = url;
   }
   async get() {
-    const request = await fetch(this.url);
-    const data = await request.json();
-    return data;
+    try {
+      const request = await fetch(this.url);
+      const data = await request.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async post() {
-    const request = await fetch(this.url, {
-      method: "POST",
-    });
-    const data = await request.json();
-    return data;
+    try {
+      const request = await fetch(this.url, {
+        method: "POST",
+      });
+      const data = await request.json();
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
