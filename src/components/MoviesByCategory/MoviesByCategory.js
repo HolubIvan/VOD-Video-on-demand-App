@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import FilmAsset from "../FilmAsset/FilmAsset";
+import AssetInCategorie from "../AssetInCategorie/AssetInCategorie";
 import serviceMoviesOfCategorie from "./../Services/serviceMoviesOfCategorie";
-import { PopularWrapper, Header2 } from "./../../styles/StyledComponents";
+import { PopularWrapper, Header1 } from "./../../styles/StyledComponents";
 
 const MoviesByCategory = () => {
   const categorieId = window.location.href.split("/").pop();
@@ -22,17 +22,17 @@ const MoviesByCategory = () => {
 
   if (filmsOfCategorie) {
     const popularFilms = filmsOfCategorie.data.results.map((el) => {
-      return <FilmAsset filmData={el} key={el.id} />;
+      return <AssetInCategorie filmData={el} key={el.id} />;
     });
 
     return (
       <>
-        <Header2>Movies of Categorie</Header2>
+        <Header1>Movies of Categorie</Header1>
         <PopularWrapper>{popularFilms}</PopularWrapper>
       </>
     );
   } else {
-    return false;
+    return null;
   }
 };
 

@@ -22,7 +22,7 @@ const NavBar = ({ menu }) => {
       </Nav>
     );
   }
-  return false;
+  return null;
 };
 
 export default NavBar;

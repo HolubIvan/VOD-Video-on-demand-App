@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import serviceCategories from "./../Services/serviceCategories";
 import { categoriesUrl } from "./../../url/url";
 import {
-  Header2,
+  Header1,
   CategoriesWrapper,
   Categorie,
   CategorieName,
@@ -32,12 +32,12 @@ const Categories = () => {
 
     return (
       <>
-        <Header2>Categories</Header2>
+        <Header1>Categories</Header1>
         <CategoriesWrapper>{arrayOfCategoriest}</CategoriesWrapper>
       </>
     );
   } else {
-    return false;
+    return null;
   }
 };
 

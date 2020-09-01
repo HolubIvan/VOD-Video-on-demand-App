@@ -12,18 +12,15 @@ const Wrapper = styled.div`
 const Header1 = styled.h1`
   color: ${({ theme }) => theme.colorWhite || "#000"};
   font-size: 5rem;
-  font-weight: 300;
-  text-align: center;
-  margin-top: 5rem;
-  transition: all 0.3s;
-`;
-
-const Header2 = styled.h2`
-  font-size: 5rem;
   font-weight: 700;
   color: #fff;
   margin: 3rem auto;
   text-align: center;
+`;
+
+const Header3 = styled(Header1)`
+  font-size: 4rem;
+  color: ${({ theme }) => theme.colorOrange || "#fff"};
 `;
 
 const Paragraph = styled.p`
@@ -133,13 +130,37 @@ const List = styled.li`
   line-height: 60px;
 `;
 
+// asset detail
+
+const AssetWrapper = styled.div`
+  width: 85%;
+  height: 500px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: row;
+`;
+
+const ImageOfAsset = styled(Image)`
+  width: auto;
+  box-shadow: 0 10px 15px grey;
+  margin-right: 2rem;
+`;
+
+const Description = styled.div`
+  flex: 1;
+`;
+
+const BoldOrangeSpan = styled.span`
+  font-weight: 700;
+  color: ${({ theme }) => theme.colorOrange || "#fff"};
+`;
+
 export {
   Wrapper,
   Header1,
   Nav,
   Ul,
   List,
-  Header2,
   CategoriesWrapper,
   Categorie,
   CategorieName,
@@ -149,4 +170,9 @@ export {
   DescriptionPopular,
   Paragraph,
   ParagraphBig,
+  AssetWrapper,
+  ImageOfAsset,
+  Description,
+  Header3,
+  BoldOrangeSpan,
 };

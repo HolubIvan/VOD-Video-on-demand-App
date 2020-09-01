@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { PopularWrapper, Header2 } from "./../../styles/StyledComponents";
+import { PopularWrapper, Header1 } from "./../../styles/StyledComponents";
 import servicePopular from "../Services/servicePopular";
 import { popularUrl } from "./../../url/url";
-import FilmAsset from "./../FilmAsset/FilmAsset";
+import AssetInCategorie from "./../AssetInCategorie/AssetInCategorie";
 
 const Popular = () => {
   const [popularData, setPopularData] = useState(null);
@@ -16,17 +16,17 @@ const Popular = () => {
 
   if (popularData) {
     const popularFilms = popularData.data.map((el) => {
-      return <FilmAsset filmData={el} key={el.id} />;
+      return <AssetInCategorie filmData={el} key={el.id} />;
     });
 
     return (
       <>
-        <Header2>Popular films</Header2>
+        <Header1>Popular films</Header1>
         <PopularWrapper>{popularFilms}</PopularWrapper>
       </>
     );
   } else {
-    return false;
+    return null;
   }
 };
 export default Popular;

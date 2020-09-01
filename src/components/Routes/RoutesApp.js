@@ -5,50 +5,57 @@ import Popular from "./../Popular/Popular";
 import Categories from "./../Categories/Categories";
 import NotFound from "./../NotFound/NotFound";
 import MoviesByCategory from "./../MoviesByCategory/MoviesByCategory";
-import B from "./../a/b";
+import AssetDetails from "./../AssetDetails/AssetDetails";
+
+function getProperComponentData(el) {
+  switch (el.label) {
+    case "Home":
+      return { ...el, exact: true, Component: Home };
+    case "Categories":
+      return { ...el, Component: Categories };
+    case "Popular":
+      return { ...el, Component: Popular };
+    case "Movies by Categorie":
+      return { ...el, Component: MoviesByCategory };
+    case "Asset":
+      return { ...el, Component: AssetDetails };
+    case "NotFound":
+      return { ...el, Component: NotFound };
+    default:
+      return { ...el, Component: NotFound };
+  }
+}
 
 const RoutesApp = ({ routes }) => {
   if (routes) {
-    const array = routes.data.map((el) => {
-      if (el.label === "Home") {
-        return <Route key={el.id} exact path={el.route} component={Home} />;
-      } else if (el.label === "Categories") {
-        return <Route key={el.id} path={el.route} component={Categories} />;
-      } else if (el.label === "Popular") {
-        return <Route key={el.id} path={el.route} component={Popular} />;
-      } else if (el.label === "Movies by Categorie") {
-        return (
-          <Route key={el.id} path={el.route} component={MoviesByCategory} />
-        );
-      } else if (el.label === "Asset") {
-        return <Route key={el.id} path={el.route} component={B} />;
-      } else {
-        return <Route key="not-found" path="*" component={NotFound} />;
-      }
+    console.log(routes);
+    const array = routes.map((el) => {
+      const { id, exact, route, Component } = getProperComponentData(el);
+      return (
+        <Route key={id} exact={exact} path={route} component={Component} />
+      );
     });
+
     return array;
   }
 
-  return false;
+  return null;
 };
 
 export default RoutesApp;
 
-// console.log(routes.data[0].label);
-
-// const Component =
-// switch (routes.data[0].label) {
-
-//   case "Home":
-//     alert("home");
-//     break;
-
-//   case "Categories":
-//     break;
-
-//   case "Popular":
-//     break;
-
-//   default:
-//     break;
+// if (el.label === "Home") {
+// return <Route key={el.id} exact path={el.route} component={Home} />
+// } else if (el.label === "Categories") {
+//   return <Route key={el.id} path={el.route} component={Categories} />;
+// } else if (el.label === "Popular") {
+//   return <Route key={el.id} path={el.route} component={Popular} />;
+// } else if (el.label === "Movies by Categorie") {
+//   return (
+//     <Route key={el.id} path={el.route} component={MoviesByCategory} />
+//   );
+// } else if (el.label === "Asset") {
+//   return <Route key={el.id} path={el.route} component={AssetDetails} />;
+// } else {
+//   return <Route key="not-found" path="*" component={NotFound} />;
 // }

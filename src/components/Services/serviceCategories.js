@@ -1,4 +1,3 @@
-import { categoriesUrl } from "./../../url/url";
 import DataLoader from "./../DataLoader/DataLoader";
 
 export default async function serviceCategories(url) {
