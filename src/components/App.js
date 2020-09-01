@@ -5,8 +5,8 @@ import NavBar from "./NavBar/NavBar";
 import theme from "./../styles/theme";
 import { Wrapper } from "./../styles/StyledComponents";
 import { menuUrl } from "./../url/url";
-import ServiceMenu from "./Services/ServiceMenu";
-import ServiceRoutes from "./Services/ServiceRoutes";
+import serviceMenu from "./Services/ServiceMenu";
+import serviceRoutes from "./Services/ServiceRoutes";
 import RoutesApp from "./Routes/RoutesApp";
 
 class App extends React.Component {
@@ -16,9 +16,9 @@ class App extends React.Component {
   };
 
   async componentDidMount() {
-    const appMenu = await ServiceMenu(menuUrl);
+    const appMenu = await serviceMenu(menuUrl);
     this.setState({ menu: appMenu });
-    const routes = await ServiceRoutes(menuUrl);
+    const routes = await serviceRoutes(menuUrl);
     this.setState({ routes: routes });
   }
 

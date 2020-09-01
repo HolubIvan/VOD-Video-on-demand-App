@@ -10,6 +10,7 @@ import {
 } from "./../../styles/StyledComponents";
 import servicePopular from "../Services/servicePopular";
 import { popularUrl, imageForCategoriesUrl } from "./../../url/url";
+import FilmAsset from "./../FilmAsset/FilmAsset";
 
 const Popular = () => {
   const [popularData, setPopularData] = useState(null);
@@ -22,20 +23,9 @@ const Popular = () => {
   }, []);
 
   if (popularData) {
+    console.log(popularData);
     const popularFilms = popularData.data.map((el) => {
-      return (
-        <PopularFilm key={el.id}>
-          <Image
-            src={`${imageForCategoriesUrl}${el.poster_path}`}
-            alt="no-image"
-          ></Image>
-          <DescriptionPopular>
-            <ParagraphBig>{el.original_title}</ParagraphBig>
-            <Paragraph>Rating: {el.vote_average}/10</Paragraph>
-            <Paragraph>Date: {el.release_date}</Paragraph>
-          </DescriptionPopular>
-        </PopularFilm>
-      );
+      return <FilmAsset filmData={el} key={el.id} />;
     });
 
     return (

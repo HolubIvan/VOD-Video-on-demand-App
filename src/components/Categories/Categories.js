@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import serviceCategories from "./../Services/serviceCategories";
 import { categoriesUrl } from "./../../url/url";
+import serviceMoviesOfCategorie from "./../Services/serviceMoviesOfCategorie";
 import {
-  Wrapper,
-  Header1,
-  Nav,
-  Ul,
-  List,
   Header2,
   CategoriesWrapper,
   Categorie,
@@ -15,7 +11,10 @@ import {
 
 const Categories = () => {
   const [categoriesData, setCategoriesData] = useState(null);
+  const [idOfCategorie, setIdOfCategorie] = useState(null);
+  const [filmsOfCategorie, setFilmsOfCategorie] = useState(null);
 
+  // effect to get categories of movies
   useEffect(() => {
     (async function getCategories() {
       const dataCategories = await serviceCategories(categoriesUrl);
@@ -23,14 +22,29 @@ const Categories = () => {
     })();
   }, []);
 
+  // effect to get movies of certain categorie by categorie id
+  useEffect(() => {
+    if (idOfCategorie) {
+      async function moviesOfCategorie(idOfCategorie) {
+        console.log(idOfCategorie);
+        const url = `https://video-proxy.3rdy.tv/api/vod/category/${idOfCategorie}/assets`;
+        const dataMovies = await serviceMoviesOfCategorie(url);
+        setFilmsOfCategorie(dataMovies);
+        console.log(dataMovies);
+      }
+      moviesOfCategorie(idOfCategorie);
+    }
+  }, [idOfCategorie]);
+
   const listenClick = (e) => {
-    console.log(e.target);
+    e.preventDefault();
+    setIdOfCategorie(e.target.closest("div").getAttribute("data-id"));
   };
 
   if (categoriesData) {
     const arrayOfCategoriest = categoriesData.data.genres.map((el) => {
       return (
-        <Categorie key={el.id}>
+        <Categorie key={el.id} data-id={el.id}>
           <CategorieName>{el.name}</CategorieName>
         </Categorie>
       );
