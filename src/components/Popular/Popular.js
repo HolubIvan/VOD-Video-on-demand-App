@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  PopularWrapper,
-  Header2,
-  PopularFilm,
-  Image,
-  DescriptionPopular,
-  Paragraph,
-  ParagraphBig,
-} from "./../../styles/StyledComponents";
+import { PopularWrapper, Header2 } from "./../../styles/StyledComponents";
 import servicePopular from "../Services/servicePopular";
-import { popularUrl, imageForCategoriesUrl } from "./../../url/url";
+import { popularUrl } from "./../../url/url";
 import FilmAsset from "./../FilmAsset/FilmAsset";
 
 const Popular = () => {
@@ -23,7 +15,6 @@ const Popular = () => {
   }, []);
 
   if (popularData) {
-    console.log(popularData);
     const popularFilms = popularData.data.map((el) => {
       return <FilmAsset filmData={el} key={el.id} />;
     });

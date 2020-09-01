@@ -1,4 +1,3 @@
-// // Service
 import DataLoader from "../DataLoader/DataLoader";
 
 export default async function servicePopular(url) {

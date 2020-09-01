@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const Wrapper = styled.div`
   max-width: 1440px;
@@ -65,13 +66,17 @@ const Categorie = styled.div`
   }
 `;
 
-const CategorieName = styled.p`
-  margin: 0 auto;
+const CategorieName = styled(NavLink)`
   color: #fff;
   font-size: 2rem;
   font-weight: 300;
   line-height: 70px;
-  height: 70px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+  z-index: 10;
 `;
 
 // POPULAR
