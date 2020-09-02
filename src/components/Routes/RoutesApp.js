@@ -42,19 +42,3 @@ const RoutesApp = ({ routes }) => {
 };
 
 export default RoutesApp;
-
-// if (el.label === "Home") {
-// return <Route key={el.id} exact path={el.route} component={Home} />
-// } else if (el.label === "Categories") {
-//   return <Route key={el.id} path={el.route} component={Categories} />;
-// } else if (el.label === "Popular") {
-//   return <Route key={el.id} path={el.route} component={Popular} />;
-// } else if (el.label === "Movies by Categorie") {
-//   return (
-//     <Route key={el.id} path={el.route} component={MoviesByCategory} />
-//   );
-// } else if (el.label === "Asset") {
-//   return <Route key={el.id} path={el.route} component={AssetDetails} />;
-// } else {
-//   return <Route key="not-found" path="*" component={NotFound} />;
-// }

@@ -158,6 +158,20 @@ const BoldOrangeSpan = styled.span`
   color: ${({ theme }) => theme.colorOrange || "#fff"};
 `;
 
+const Button = styled.button`
+  width: 150px;
+  height: 50px;
+  background-color: coral;
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  margin: 1rem auto;
+`;
+
 export {
   Wrapper,
   Header1,
@@ -178,4 +192,5 @@ export {
   Description,
   Header3,
   BoldOrangeSpan,
+  Button,
 };
