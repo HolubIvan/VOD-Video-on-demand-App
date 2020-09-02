@@ -28,7 +28,6 @@ function getProperComponentData(el) {
 
 const RoutesApp = ({ routes }) => {
   if (routes) {
-    console.log(routes);
     const array = routes.map((el) => {
       const { id, exact, route, Component } = getProperComponentData(el);
       return (

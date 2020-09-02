@@ -37,15 +37,17 @@ const ParagraphBig = styled(Paragraph)`
 // CATEGORIES
 
 const CategoriesWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
   width: 90%;
   margin: 3rem auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Categorie = styled.div`
-  display: flex;
+  flex-basis: 20%;
+  margin: 1rem;
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colorOrange || "coral"};
@@ -79,12 +81,13 @@ const CategorieName = styled(NavLink)`
 // POPULAR
 
 const PopularWrapper = styled(CategoriesWrapper)`
-  grid-template-columns: repeat(5, 1fr);
+  // grid-template-columns: repeat(5, 1fr);
 `;
 
 const PopularFilm = styled.div`
   width: 220px;
   height: 320px;
+  margin: 1rem;
   position: relative;
   cursor: pointer;
 
