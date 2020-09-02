@@ -12,11 +12,11 @@ export default async function serviceRoutes(url) {
       label: "Asset",
       route: "/asset/",
     },
-    {
-      id: "not-found",
-      label: "NotFound",
-      route: "*",
-    },
+    // {
+    //   id: "not-found",
+    //   label: "NotFound",
+    //   route: "*",
+    // },
   ];
   const data = await new DataLoader(url).get();
   const routes = [...data.data, ...staticRoutes];

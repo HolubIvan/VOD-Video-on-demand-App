@@ -1,13 +1,14 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
 import theme from "./../styles/theme";
 import { Wrapper } from "./../styles/StyledComponents";
 import { menuUrl } from "./../url/url";
-import serviceMenu from "./Services/ServiceMenu";
-import serviceRoutes from "./Services/ServiceRoutes";
+import serviceMenu from "./Services/serviceMenu";
+import serviceRoutes from "./Services/serviceRoutes";
 import RoutesApp from "./Routes/RoutesApp";
+import NotFound from "./NotFound/NotFound";
 
 class App extends React.Component {
   state = {
@@ -33,6 +34,7 @@ class App extends React.Component {
               <RoutesApp
                 routes={this.state.routes ? this.state.routes : false}
               />
+              {/* <Route path="*" component={NotFound} /> */}
             </Switch>
           </Router>
         </Wrapper>
