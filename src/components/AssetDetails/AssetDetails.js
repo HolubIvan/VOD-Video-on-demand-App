@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import { filmDetailUrl, imagesUrl } from "./../../url/url";
 import serviceAssetDetail from "./../Services/serviceAssetDetail";
 import {
@@ -22,12 +23,14 @@ function getCountries(el) {
 }
 
 const AssetDetails = () => {
-  const filmId = window.location.href.split("/").pop();
-  const assetUrl = `${filmDetailUrl}${filmId}`;
+  const { id } = useParams();
+
+  const assetUrl = `${filmDetailUrl}${id}`;
 
   const [assetDetail, setAssetDetail] = useState(null);
   const [isModalShow, setIsModalShow] = useState(false);
 
+  // effect to get data of film
   useEffect(() => {
     async function getFilmDetails(url) {
       const dataFilm = await serviceAssetDetail(url);

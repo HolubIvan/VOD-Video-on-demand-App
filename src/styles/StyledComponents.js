@@ -101,7 +101,7 @@ const CategorieName = styled(NavLink)`
 
 // POPULAR
 
-const PopularWrapper = styled(CategoriesWrapper)`
+const AssetsWrapper = styled(CategoriesWrapper)`
   // grid-template-columns: repeat(5, 1fr);
 `;
 
@@ -266,7 +266,7 @@ export {
   CategoriesWrapper,
   Categorie,
   CategorieName,
-  PopularWrapper,
+  AssetsWrapper,
   PopularFilm,
   Image,
   DescriptionPopular,
