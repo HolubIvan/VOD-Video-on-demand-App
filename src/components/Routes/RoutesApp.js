@@ -19,8 +19,8 @@ function getProperComponentData(el) {
       return { ...el, Component: MoviesByCategory };
     case "Asset":
       return { ...el, Component: AssetDetails };
-    // case "NotFound":
-    //   return { ...el, Component: NotFound };
+    case "NotFound":
+      return { ...el, Component: NotFound };
     default:
     // return { ...el, Component: NotFound };
   }
