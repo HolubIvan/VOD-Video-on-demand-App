@@ -2,7 +2,7 @@ import React from "react";
 import {
   Slide,
   DescriptionPopular,
-  Paragraph,
+  ParagraphBig,
   SlideImage,
   DescriptionBlock,
   Button,
@@ -23,7 +23,9 @@ const Slider = ({ filmObject }) => {
       >
         <DescriptionBlock>
           <Header2>{filmObject.original_title}</Header2>
-          <Paragraph>Release date: {filmObject.release_date}</Paragraph>
+          <ParagraphBig>
+            Release year: {filmObject.release_date.split("-")[0]}
+          </ParagraphBig>
           <Link to={linkPath} className="button-link">
             <Button style={{ marginTop: "1rem" }}>Explore</Button>
           </Link>
