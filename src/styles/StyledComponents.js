@@ -265,7 +265,7 @@ const VideoWrapper = styled.div`
 
 const SliderWrapper = styled.div`
   width: 100%;
-  height: 500px;
+  height: 520px;
   margin: 0 auto;
 `;
 
@@ -312,6 +312,11 @@ const DescriptionBlock = styled.div`
   margin-left: auto;
 `;
 
+const ImageRotated = styled(Image)`
+  width: 80px;
+  transform: rotate(90deg) translate(4px, 20px);
+`;
+
 export {
   Wrapper,
   Header1,
@@ -348,4 +353,5 @@ export {
   ImageArrowLeft,
   ImageArrowRight,
   DescriptionBlock,
+  ImageRotated,
 };

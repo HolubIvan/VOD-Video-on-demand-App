@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Header1 } from "./../../styles/StyledComponents";
+import { Header1, ImageRotated } from "./../../styles/StyledComponents";
 import { popularUrl } from "./../../url/url";
 import servicePopular from "./../Services/servicePopular";
 import SliderBox from "./../SliderBox/SliderBox";
+import Logo from "./../../img/WTS.png";
 
 const Home = () => {
   const [popularFilms, setPopularFilms] = useState(null);
@@ -18,7 +19,10 @@ const Home = () => {
   if (popularFilms) {
     return (
       <>
-        <Header1>WHAT TO SEE</Header1>
+        <Header1>
+          WHAT TO SEE
+          <ImageRotated src={Logo} />
+        </Header1>
         <SliderBox popularFilms={popularFilms} />
       </>
     );
