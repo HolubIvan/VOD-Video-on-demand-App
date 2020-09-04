@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PopularWrapper, Header1 } from "./../../styles/StyledComponents";
+import { AssetsWrapper, Header1 } from "./../../styles/StyledComponents";
 import servicePopular from "../Services/servicePopular";
 import { popularUrl } from "./../../url/url";
 import AssetInCategorie from "./../AssetInCategorie/AssetInCategorie";
@@ -22,7 +22,7 @@ const Popular = () => {
     return (
       <>
         <Header1>Popular films</Header1>
-        <PopularWrapper>{popularFilms}</PopularWrapper>
+        <AssetsWrapper>{popularFilms}</AssetsWrapper>
       </>
     );
   } else {

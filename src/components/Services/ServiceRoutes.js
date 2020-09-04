@@ -3,14 +3,14 @@ import DataLoader from "../DataLoader/DataLoader";
 export default async function serviceRoutes(url) {
   const staticRoutes = [
     {
-      id: "movies-of-categorie",
-      label: "Movies by Categorie",
-      route: "/movies/",
+      id: "movies-by-categorie",
+      label: "Movies-by-Categorie",
+      route: "/movies/:category_id",
     },
     {
       id: "asset",
       label: "Asset",
-      route: "/asset/",
+      route: "/asset/:id",
     },
     // {
     //   id: "not-found",

@@ -15,7 +15,7 @@ function getProperComponentData(el) {
       return { ...el, Component: Categories };
     case "Popular":
       return { ...el, Component: Popular };
-    case "Movies by Categorie":
+    case "Movies-by-Categorie":
       return { ...el, Component: MoviesByCategory };
     case "Asset":
       return { ...el, Component: AssetDetails };

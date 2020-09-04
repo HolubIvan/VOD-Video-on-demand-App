@@ -12,7 +12,7 @@ function getArrayOfCategories(el) {
   return el.data.genres.map((el) => {
     const path = `/movies/${el.id}`;
     return (
-      <Categorie key={el.id} data-id={el.id}>
+      <Categorie key={el.id} data-id={el.id} data-name={el.name}>
         <CategorieName to={path}>{el.name}</CategorieName>
       </Categorie>
     );
