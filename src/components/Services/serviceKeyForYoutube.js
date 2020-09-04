@@ -2,5 +2,5 @@ import DataLoader from "../DataLoader/DataLoader";
 
 export default async function serviceKeyForYoutube(url) {
   const data = await new DataLoader(url).get();
-  return data;
+  return data.data.results[0].key;
 }
