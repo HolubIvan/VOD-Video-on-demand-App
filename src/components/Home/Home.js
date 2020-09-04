@@ -26,9 +26,8 @@ const Home = () => {
         <SliderBox popularFilms={popularFilms} />
       </>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default Home;

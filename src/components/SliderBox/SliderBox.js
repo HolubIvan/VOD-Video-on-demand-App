@@ -41,21 +41,20 @@ const SliderBox = ({ popularFilms }) => {
           <ImageArrowLeft
             onClick={onArrowClick}
             src={ArrowLeft}
-            alt="arrow"
+            alt="arrow-left"
             data-arrow="left"
           />
           <ImageArrowRight
             onClick={onArrowClick}
             src={ArrowRight}
-            alt="arrow"
+            alt="arrow-right"
             data-arrow="right"
           />
         </SliderWrapper>
       </>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default SliderBox;

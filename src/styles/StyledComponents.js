@@ -317,6 +317,11 @@ const ImageRotated = styled(Image)`
   transform: rotate(90deg) translate(4px, 20px);
 `;
 
+const DescriptionSlider = styled(DescriptionPopular)`
+  display: block;
+  background-color: #29324145;
+`;
+
 export {
   Wrapper,
   Header1,
@@ -354,4 +359,5 @@ export {
   ImageArrowRight,
   DescriptionBlock,
   ImageRotated,
+  DescriptionSlider,
 };
