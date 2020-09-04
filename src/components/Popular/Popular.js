@@ -10,7 +10,6 @@ const Popular = () => {
   useEffect(() => {
     (async function getPopularFilms() {
       const popularFilms = await servicePopular(popularUrl);
-      console.log(popularFilms);
       setPopularData(popularFilms);
     })();
   }, []);
