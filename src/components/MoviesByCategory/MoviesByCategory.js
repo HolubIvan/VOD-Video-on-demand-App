@@ -6,16 +6,12 @@ import { AssetsWrapper, Header1 } from "./../../styles/StyledComponents";
 import ScrollComponent from "./../ScrollComponent/ScrollComponent";
 import serviceCategories from "./../Services/serviceCategories";
 import { categoriesUrl } from "./../../url/url";
+import getProperlyNameOfCategorie from "./../../utils/NameOfCategoryUtil";
 
 function getFilms(el) {
   return el.map((el) => {
     return <AssetInCategorie filmData={el} key={el.id} />;
   });
-}
-
-function getProperlyNameOfCategorie(data, id) {
-  const film = data.data.genres.find((el) => el.id === Number(id));
-  return film.name;
 }
 
 const MoviesByCategory = () => {
@@ -73,9 +69,8 @@ const MoviesByCategory = () => {
         </AssetsWrapper>
       </>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default MoviesByCategory;

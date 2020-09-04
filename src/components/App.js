@@ -6,7 +6,7 @@ import theme from "./../styles/theme";
 import { Wrapper } from "./../styles/StyledComponents";
 import { menuUrl } from "./../url/url";
 import serviceMenu from "./Services/serviceMenu";
-import serviceRoutes from "./Services/serviceRoutes";
+import serviceRoutes from "./Services/ServiceRoutes";
 import RoutesApp from "./Routes/RoutesApp";
 import NotFound from "./NotFound/NotFound";
 
