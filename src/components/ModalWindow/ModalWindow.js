@@ -12,16 +12,15 @@ import closeImage from "./../../img/close.png";
 const ModalWindow = ({ display, assetDetail, onCloseVideoClick }) => {
   const trailerId = assetDetail.data.videos.id;
   const videosOfFilmYoutubeUrl = `${urlExample}api/vod/asset/${trailerId}/videos`;
-
   const [keyOfVideos, setKeyOfVideos] = useState(null);
 
   useEffect(() => {
     async function getKeyForYoutube(url) {
       const data = await serviceKeyForYoutube(url);
-      setKeyOfVideos(data.data.results[0].key);
+      setKeyOfVideos(data);
     }
     getKeyForYoutube(videosOfFilmYoutubeUrl);
-  });
+  }, [videosOfFilmYoutubeUrl]);
 
   if (display && keyOfVideos) {
     return (
@@ -40,9 +39,8 @@ const ModalWindow = ({ display, assetDetail, onCloseVideoClick }) => {
         </VideoWrapper>
       </ModalWrapper>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default ModalWindow;

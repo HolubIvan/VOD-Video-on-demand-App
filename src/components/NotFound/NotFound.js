@@ -17,7 +17,6 @@ const NotFound = () => {
   useEffect(() => {
     (async function getPopularFilms() {
       const popularFilms = await servicePopular(popularUrl);
-      console.log(popularFilms);
       setPopularData(popularFilms);
     })();
   }, []);
@@ -31,9 +30,8 @@ const NotFound = () => {
         <AssetsWrapper>{films}</AssetsWrapper>
       </>
     );
-  } else {
-    return null;
   }
+  return null;
 };
 
 export default NotFound;

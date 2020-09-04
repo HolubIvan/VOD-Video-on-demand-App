@@ -81,13 +81,13 @@ const AssetDetails = () => {
             <ParagraphLeft>{assetDetail.data.overview}</ParagraphLeft>
           </Description>
           <Button onClick={onAssetButtonClick}>Watch Trailers</Button>
-          {isModalShow ? (
+          {isModalShow && (
             <ModalWindow
               display={isModalShow}
               assetDetail={assetDetail}
               onCloseVideoClick={onCloseVideoClick}
             />
-          ) : null}
+          )}
         </AssetWrapper>
       </>
     );
