@@ -19,6 +19,7 @@ const Header1 = styled.h1`
 `;
 
 const Header3 = styled(Header1)`
+  margin: 0 auto;
   font-size: 4rem;
   color: ${({ theme }) => theme.colorOrange || "#fff"};
 `;
@@ -32,6 +33,26 @@ const Paragraph = styled.p`
 
 const ParagraphBig = styled(Paragraph)`
   font-size: 3rem;
+`;
+
+const ParagraphLeft = styled(Paragraph)`
+  text-align: left;
+`;
+
+const ParagraphLeftOrange = styled(ParagraphLeft)`
+  font-weight: 700;
+  color: ${({ theme }) => theme.colorOrange || "#fff"};
+`;
+
+const Span = styled.span`
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 400;
+`;
+
+const SpanSmall = styled(Span)`
+  font-size: 1.4rem;
+  font-weight: 300;
 `;
 
 // CATEGORIES
@@ -133,43 +154,104 @@ const List = styled.li`
   line-height: 60px;
 `;
 
+const Div = styled.div`
+  display: block;
+`;
+
 // asset detail
 
 const AssetWrapper = styled.div`
   width: 85%;
   height: 500px;
   margin: 3rem auto;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 `;
 
 const ImageOfAsset = styled(Image)`
-  width: auto;
+  width: 300px;
+  height: 450px;
   box-shadow: 0 10px 15px grey;
-  margin-right: 2rem;
+  grid-column: 1/3;
 `;
 
 const Description = styled.div`
-  flex: 1;
-`;
-
-const BoldOrangeSpan = styled.span`
-  font-weight: 700;
-  color: ${({ theme }) => theme.colorOrange || "#fff"};
+  grid-column: 3/6;
 `;
 
 const Button = styled.button`
-  width: 150px;
+  width: 160px;
   height: 50px;
-  background-color: coral;
+  background-color: ${({ theme }) => theme.colorOrange || "coral"};
   border: none;
   border-radius: 7px;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  font-weight: 300;
   text-align: center;
   line-height: 50px;
   display: inline-block;
   margin: 1rem auto;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s;
+  box-shadow: 0 3px 7px grey;
+  grid-column: 3/6;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px grey;
+  }
+  &:active {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 7px grey;
+  }
+`;
+
+// Modal
+
+const ModalWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #80808085;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+`;
+
+const Iframe = styled.iframe`
+  // width: 640px;
+  // height: 360px;
+  width: 100%;
+  height: 100%;
+  // position: relative;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px 15px #fff;
+`;
+
+const CloseImage = styled(Image)`
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -4rem;
+  right: -4rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.07);
+  }
+`;
+
+const VideoWrapper = styled.div`
+  width: 640px;
+  height: 360px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export {
@@ -178,6 +260,9 @@ export {
   Nav,
   Ul,
   List,
+  Div,
+  Span,
+  SpanSmall,
   CategoriesWrapper,
   Categorie,
   CategorieName,
@@ -187,10 +272,15 @@ export {
   DescriptionPopular,
   Paragraph,
   ParagraphBig,
+  ParagraphLeft,
+  ParagraphLeftOrange,
   AssetWrapper,
   ImageOfAsset,
   Description,
   Header3,
-  BoldOrangeSpan,
   Button,
+  ModalWrapper,
+  Iframe,
+  CloseImage,
+  VideoWrapper,
 };

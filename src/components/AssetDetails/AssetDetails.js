@@ -6,15 +6,27 @@ import {
   ImageOfAsset,
   Description,
   Header3,
-  Paragraph,
-  BoldOrangeSpan,
+  ParagraphLeft,
+  ParagraphLeftOrange,
+  Button,
+  Div,
+  Span,
+  SpanSmall,
 } from "./../../styles/StyledComponents";
+import ModalWindow from "./../ModalWindow/ModalWindow";
+
+function getCountries(el) {
+  return el.data.production_countries.map((el) => {
+    return <ParagraphLeft key={el.name}>{el.name}</ParagraphLeft>;
+  });
+}
 
 const AssetDetails = () => {
   const filmId = window.location.href.split("/").pop();
   const assetUrl = `${filmDetailUrl}${filmId}`;
 
   const [assetDetail, setAssetDetail] = useState(null);
+  const [isModalShow, setIsModalShow] = useState(false);
 
   useEffect(() => {
     async function getFilmDetails(url) {
@@ -24,16 +36,19 @@ const AssetDetails = () => {
     getFilmDetails(assetUrl);
   }, [assetUrl]);
 
+  const onAssetButtonClick = (e) => {
+    e.preventDefault();
+    setIsModalShow(true);
+  };
+
+  const onCloseVideoClick = (e) => {
+    setIsModalShow(false);
+  };
+
   if (assetDetail) {
     const imagePath = `${imagesUrl}${assetDetail.data.poster_path}`;
-    const productionCompanies = assetDetail.data.production_companies.map(
-      (el) => {
-        return `${el.name} `;
-      }
-    );
-    const countries = assetDetail.data.production_countries.map((el) => {
-      return `${el.name} `;
-    });
+    const countries = getCountries(assetDetail);
+
     return (
       <>
         <AssetWrapper>
@@ -43,22 +58,32 @@ const AssetDetails = () => {
               {assetDetail.data.original_title} (
               {assetDetail.data.release_date.split("-")[0]})
             </Header3>
-            <Paragraph>
-              <BoldOrangeSpan>Production companies:</BoldOrangeSpan>{" "}
-              {productionCompanies}
-            </Paragraph>
-            <Paragraph>
-              <BoldOrangeSpan>Release date:</BoldOrangeSpan>{" "}
-              {assetDetail.data.release_date}
-            </Paragraph>
-            <Paragraph>
-              <BoldOrangeSpan>Countries:</BoldOrangeSpan> {countries}
-            </Paragraph>
-            <Paragraph>
-              <BoldOrangeSpan>Overview:</BoldOrangeSpan>
-            </Paragraph>
-            <Paragraph>{assetDetail.data.overview}</Paragraph>
+            <Div>
+              <ParagraphLeftOrange>
+                Rating:{" "}
+                <Span>
+                  {assetDetail.data.vote_average}/10{" "}
+                  <SpanSmall>({assetDetail.data.vote_count} votes)</SpanSmall>
+                </Span>
+              </ParagraphLeftOrange>
+            </Div>
+            <ParagraphLeftOrange>
+              Release date: <Span>{assetDetail.data.release_date}</Span>
+            </ParagraphLeftOrange>
+            <Div>
+              <ParagraphLeftOrange>Countries:</ParagraphLeftOrange> {countries}
+            </Div>
+            <ParagraphLeftOrange>Overview:</ParagraphLeftOrange>
+            <ParagraphLeft>{assetDetail.data.overview}</ParagraphLeft>
           </Description>
+          <Button onClick={onAssetButtonClick}>Watch Trailers</Button>
+          {isModalShow && (
+            <ModalWindow
+              display={isModalShow}
+              assetDetail={assetDetail}
+              onCloseVideoClick={onCloseVideoClick}
+            />
+          )}
         </AssetWrapper>
       </>
     );
