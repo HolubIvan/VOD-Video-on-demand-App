@@ -24,6 +24,12 @@ const Header3 = styled(Header1)`
   color: ${({ theme }) => theme.colorOrange || "#fff"};
 `;
 
+const Header2 = styled(Header3)`
+  margin: 1rem auto;
+  font-size: 4.5rem;
+  text-shadow: 1px 1px 4px #ffffffd6;
+`;
+
 const Paragraph = styled.p`
   font-size: 2rem;
   color: #fff;
@@ -139,6 +145,7 @@ const Nav = styled.nav`
   height: 60px;
   background-color: ${({ theme }) => theme.colorGreyLight || "coral"};
   box-shadow: 0 4px 10px ${({ theme }) => theme.colorGreyLight || "coral"};
+  position: relative;
 `;
 
 const Ul = styled.ul`
@@ -254,9 +261,62 @@ const VideoWrapper = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+// Home
+
+const SliderWrapper = styled.div`
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+`;
+
+const Slide = styled.div`
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 15px 15px #ffffffad;
+`;
+
+const SlideImage = styled(Image)`
+  object-fit: cover;
+`;
+
+const ImageArrow = styled.img`
+  width: 60px;
+  height: auto;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.07);
+    background-color: #ffffff6b;
+  }
+  &:active {
+    transform: scale(1.02);
+  }
+`;
+
+const ImageArrowLeft = styled(ImageArrow)`
+  left: 3%;
+`;
+
+const ImageArrowRight = styled(ImageArrow)`
+  right: 3%;
+`;
+
+const DescriptionBlock = styled.div`
+  width: 50rem;
+  margin-left: auto;
+`;
+
 export {
   Wrapper,
   Header1,
+  Header2,
+  Header3,
   Nav,
   Ul,
   List,
@@ -277,10 +337,15 @@ export {
   AssetWrapper,
   ImageOfAsset,
   Description,
-  Header3,
   Button,
   ModalWrapper,
   Iframe,
   CloseImage,
   VideoWrapper,
+  SliderWrapper,
+  Slide,
+  SlideImage,
+  ImageArrowLeft,
+  ImageArrowRight,
+  DescriptionBlock,
 };
