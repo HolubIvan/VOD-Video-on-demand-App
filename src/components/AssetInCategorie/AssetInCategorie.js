@@ -7,18 +7,15 @@ import {
   Paragraph,
   ParagraphBig,
 } from "../../styles/StyledComponents";
-import { imagesUrl } from "../../url/url";
 import "./AssetInCategorie.scss";
+import getImageOfAsset from "./../../utils/ImageOfAsset";
 
 const AssetInCategorie = ({ filmData }) => {
   const path = `/asset/${filmData.id}`;
   return (
     <PopularFilm>
       <Link to={path} className="film-asset">
-        <Image
-          src={`${imagesUrl}${filmData.poster_path}`}
-          alt="no-image"
-        ></Image>
+        <Image src={getImageOfAsset(filmData)} alt="no-image"></Image>
         <DescriptionPopular>
           <ParagraphBig>{filmData.original_title}</ParagraphBig>
           <Paragraph>Rating: {filmData.vote_average}/10</Paragraph>

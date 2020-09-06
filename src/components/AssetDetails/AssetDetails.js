@@ -15,7 +15,7 @@ import {
   SpanSmall,
 } from "./../../styles/StyledComponents";
 import ModalWindow from "./../ModalWindow/ModalWindow";
-import defaultImage from "./../../img/default.png";
+import getImageOfAsset from "./../../utils/ImageOfAsset";
 
 function getCountries(el) {
   return el.data.production_countries.map((el) => {
@@ -50,13 +50,13 @@ const AssetDetails = () => {
   };
 
   if (assetDetail) {
-    const imagePath = `${imagesUrl}${assetDetail.data.poster_path}`;
+    const imagePath = getImageOfAsset(assetDetail.data);
     const countries = getCountries(assetDetail);
-
     return (
       <>
         <AssetWrapper>
           <ImageOfAsset src={imagePath}></ImageOfAsset>
+
           <Description>
             <Header3>
               {assetDetail.data.original_title} (

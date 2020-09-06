@@ -282,14 +282,8 @@ const ModalWrapper = styled.div`
 `;
 
 const Iframe = styled.iframe`
-  // width: 640px;
-  // height: 360px;
   width: 100%;
   height: 100%;
-  // position: relative;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   box-shadow: 0 0 20px 15px #fff;
 `;
 

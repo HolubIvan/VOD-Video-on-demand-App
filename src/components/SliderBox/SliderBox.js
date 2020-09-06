@@ -24,7 +24,6 @@ const SliderBox = ({ popularFilms }) => {
         setIndex(index - 1);
       }
     } else {
-      console.log(index);
       if (index > popularFilms.data.length - 2) {
         setIndex(0);
       } else {
