@@ -4,6 +4,10 @@
   color: #fff;
   font-weight: 300;
   transition: all 0.3s;
+
+  @media (max-width: 700px) {
+    font-size: 2rem;
+  }
 }
 
 .nav__link:hover {

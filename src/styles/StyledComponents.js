@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import "./mixins.scss";
 
 const Wrapper = styled.div`
   max-width: 1440px;
@@ -28,6 +29,9 @@ const Header2 = styled(Header3)`
   margin: 1rem auto;
   font-size: 4.5rem;
   text-shadow: 1px 1px 4px #ffffffd6;
+  @media (max-width: 500px) {
+    font-size: 3.5rem;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -39,6 +43,9 @@ const Paragraph = styled.p`
 
 const ParagraphBig = styled(Paragraph)`
   font-size: 3rem;
+  @media (max-width: 500px) {
+    font-size: 2rem;
+  }
 `;
 
 const ParagraphLeft = styled(Paragraph)`
@@ -81,7 +88,17 @@ const Categorie = styled.div`
   transition: all 0.3s;
   cursor: pointer;
 
-  &:hover {
+  @media (max-width: 1000px) {
+    flex-basis: 25%;
+  }
+  @media (max-width: 700px) {
+    flex-basis: 30%;
+  }
+  @media (max-width: 500px) {
+    flex-basis: 60%;
+  }
+
+  &: hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 10px ${({ theme }) => theme.colorGreyLight || "grey"};
   }
@@ -146,6 +163,11 @@ const Nav = styled.nav`
   background-color: ${({ theme }) => theme.colorGreyLight || "coral"};
   box-shadow: 0 4px 10px ${({ theme }) => theme.colorGreyLight || "coral"};
   position: relative;
+
+  @media (max-width: 700px) {
+    flex-basis: 60%;
+    height: 135px;
+  }
 `;
 
 const Ul = styled.ul`
@@ -153,12 +175,27 @@ const Ul = styled.ul`
   justify-content: flex-end;
   align-content: center;
   height: 100%;
+  transition: all 0.3s;
+
+  @media (max-width: 700px) {
+    height: auto;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const List = styled.li`
   list-style: none;
   margin: 0 3rem;
   line-height: 60px;
+
+  @media (max-width: 700px) {
+    text-align: center;
+    line-height: 40px;
+  }
 `;
 
 const Div = styled.div`
@@ -180,10 +217,18 @@ const ImageOfAsset = styled(Image)`
   height: 450px;
   box-shadow: 0 10px 15px grey;
   grid-column: 1/3;
+
+  @media (max-width: 900px) {
+    grid-column: 2/6;
+    display: none;
+  }
 `;
 
 const Description = styled.div`
   grid-column: 3/6;
+  @media (max-width: 900px) {
+    grid-column: 1/6;
+  }
 `;
 
 const Button = styled.button`
@@ -204,6 +249,15 @@ const Button = styled.button`
   transition: all 0.3s;
   box-shadow: 0 3px 7px grey;
   grid-column: 3/6;
+
+  @media (max-width: 900px) {
+    grid-column: 1/6;
+  }
+
+  @media (max-width: 500px) {
+    width: 100px;
+    font-size: 1.4rem;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -265,7 +319,7 @@ const VideoWrapper = styled.div`
 
 const SliderWrapper = styled.div`
   width: 100%;
-  height: 520px;
+  height: 480px;
   margin: 0 auto;
 `;
 
@@ -290,6 +344,10 @@ const ImageArrow = styled.img`
   transition: all 0.3s;
   cursor: pointer;
 
+  @media (max-width: 500px) {
+    top: 85%;
+  }
+
   &:hover {
     transform: scale(1.07);
     background-color: #ffffff6b;
@@ -310,16 +368,51 @@ const ImageArrowRight = styled(ImageArrow)`
 const DescriptionBlock = styled.div`
   width: 50rem;
   margin-left: auto;
+
+  @media (max-width: 500px) {
+    width: 30rem;
+    margin: 0 auto;
+  }
 `;
 
 const ImageRotated = styled(Image)`
   width: 80px;
   transform: rotate(90deg) translate(4px, 20px);
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const DescriptionSlider = styled(DescriptionPopular)`
   display: block;
   background-color: #29324145;
+`;
+
+const SummaryLinksWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+`;
+
+const ExternalLink = styled.a`
+  text-decoration: none;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 1rem;
+  transition: all 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.colorOrange || "coral"};
+  }
+`;
+
+const ImageLogo = styled(Image)`
+  width: 110px;
+  position: absolute;
+  @media (max-width: 700px) {
+    height: auto;
+  }
 `;
 
 export {
@@ -360,4 +453,7 @@ export {
   DescriptionBlock,
   ImageRotated,
   DescriptionSlider,
+  SummaryLinksWrapper,
+  ExternalLink,
+  ImageLogo,
 };

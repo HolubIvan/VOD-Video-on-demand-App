@@ -78,7 +78,9 @@ const AssetDetails = () => {
               <ParagraphLeftOrange>Countries:</ParagraphLeftOrange> {countries}
             </Div>
             <ParagraphLeftOrange>Overview:</ParagraphLeftOrange>
-            <ParagraphLeft>{assetDetail.data.overview}</ParagraphLeft>
+            <ParagraphLeft>
+              {assetDetail.data.overview.substring(0, 350)}...
+            </ParagraphLeft>
           </Description>
           <Button onClick={onAssetButtonClick}>Watch Trailers</Button>
           {isModalShow && (
