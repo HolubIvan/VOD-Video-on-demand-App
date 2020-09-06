@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  Header1,
+  Header2,
   ImageRotated,
   Paragraph,
 } from "./../../styles/StyledComponents";
@@ -24,10 +24,10 @@ const Home = () => {
   if (popularFilms) {
     return (
       <>
-        <Header1>
+        <Header2 style={{ color: "#fff" }}>
           WHAT TO SEE
           <ImageRotated src={Logo} />
-        </Header1>
+        </Header2>
         <SliderBox popularFilms={popularFilms} />
         <SummaryLinks />
       </>

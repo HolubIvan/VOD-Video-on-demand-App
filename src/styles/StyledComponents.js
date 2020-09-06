@@ -71,7 +71,7 @@ const SpanSmall = styled(Span)`
 // CATEGORIES
 
 const CategoriesWrapper = styled.div`
-  width: 90%;
+  width: 95%;
   margin: 3rem auto;
   display: flex;
   flex-direction: row;
@@ -313,7 +313,7 @@ const VideoWrapper = styled.div`
 
 const SliderWrapper = styled.div`
   width: 100%;
-  height: 480px;
+  height: 460px;
   margin: 0 auto;
 `;
 
@@ -404,9 +404,49 @@ const ExternalLink = styled.a`
 const ImageLogo = styled(Image)`
   width: 110px;
   position: absolute;
+  z-index: 51;
   @media (max-width: 700px) {
     height: auto;
   }
+`;
+
+const Input = styled.input`
+  position: absolute;
+  top: 1.5rem;
+  left: 12rem;
+  color: #fff;
+  border: none;
+  background: #3d5a8000;
+  border-bottom: 2px solid ${({ theme }) => theme.colorOrange || "coral"};
+  font-size: 1.6rem;
+  font-weight: 300;
+  padding: 5px;
+  z-index: 51;
+
+  ::placeholder {
+    color: #fff;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    border: 2px solid ${({ theme }) => theme.colorOrange || "coral"};
+  }
+`;
+
+//input popup
+
+const InputPopupWrapper = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  background-color: #2f2d2df2;
+  z-index: 50;
+`;
+
+const PopupFilmsWrapper = styled(CategoriesWrapper)`
+  width: 90%;
+  margin-top: 6rem;
 `;
 
 export {
@@ -450,4 +490,7 @@ export {
   SummaryLinksWrapper,
   ExternalLink,
   ImageLogo,
+  Input,
+  InputPopupWrapper,
+  PopupFilmsWrapper,
 };
