@@ -6,6 +6,7 @@ import Categories from "./../Categories/Categories";
 import NotFound from "./../NotFound/NotFound";
 import MoviesByCategory from "./../MoviesByCategory/MoviesByCategory";
 import AssetDetails from "./../AssetDetails/AssetDetails";
+import Discover from "./../Discover/Discover";
 
 function getProperComponentData(el) {
   switch (el.label) {
@@ -19,6 +20,8 @@ function getProperComponentData(el) {
       return { ...el, Component: MoviesByCategory };
     case "Asset":
       return { ...el, Component: AssetDetails };
+    case "Discover":
+      return { ...el, Component: Discover };
     // case "NotFound":
     //   return { ...el, Component: NotFound };
     default:

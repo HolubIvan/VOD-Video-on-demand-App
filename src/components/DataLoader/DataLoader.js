@@ -1,6 +1,7 @@
 export default class DataLoader {
-  constructor(url) {
+  constructor(url, param) {
     this.url = url;
+    this.param = param;
   }
   async get() {
     try {
@@ -16,6 +17,13 @@ export default class DataLoader {
     try {
       const request = await fetch(this.url, {
         method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          filters: this.param,
+        }),
       });
       const data = await request.json();
       return data;

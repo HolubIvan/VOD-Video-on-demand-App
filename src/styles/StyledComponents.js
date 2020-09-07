@@ -166,7 +166,7 @@ const Nav = styled.nav`
 
   @media (max-width: 700px) {
     flex-basis: 60%;
-    height: 170px;
+    height: 200px;
   }
 `;
 
@@ -181,7 +181,7 @@ const Ul = styled.ul`
     height: auto;
     flex-direction: column;
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -189,7 +189,7 @@ const Ul = styled.ul`
 
 const List = styled.li`
   list-style: none;
-  margin: 0 3rem;
+  margin: 0 1.3rem;
   line-height: 60px;
 
   @media (max-width: 700px) {
@@ -422,7 +422,8 @@ const Input = styled.input`
   font-weight: 300;
   padding: 5px;
   z-index: 51;
-  width: 135px;
+  width: 110px;
+  transition: all 0.3s;
 
   ::placeholder {
     color: #fff;
@@ -431,12 +432,12 @@ const Input = styled.input`
   &:focus {
     outline: none;
     border: none;
-    border: 2px solid ${({ theme }) => theme.colorOrange || "coral"};
+    outline: 2px solid ${({ theme }) => theme.colorOrange || "coral"};
   }
 
   @media (max-width: 700px) {
     position: absolute;
-    top: 1rem;
+    top: 5px;
     left: 50%;
     transform: translate(-45%);
     width: 110px;
@@ -456,6 +457,69 @@ const InputPopupWrapper = styled.div`
 const PopupFilmsWrapper = styled(CategoriesWrapper)`
   width: 90%;
   margin-top: 6rem;
+`;
+
+//Discover
+
+const Form = styled.form`
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+`;
+
+const InputDiscover = styled(Input)`
+  width: 70px;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 5px 0 0 1rem;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &:focus {
+    border: none;
+    outline: 2px solid ${({ theme }) => theme.colorOrange || "coral"};
+  }
+
+  @media (max-width: 700px) {
+    position: relative;
+    top: 0;
+    left: 8%;
+  }
+  @media (max-width: 500px) {
+    position: relative;
+    top: 0;
+    left: 12%;
+  }
+`;
+
+const Select = styled.select`
+  width: 140px;
+  margin-top: 1rem;
+  border: none;
+  outline: none;
+  height: 30px;
+  background-color: ${({ theme }) => theme.colorOrange || "coral"};
+  color: #fff;
+  padding: 5px;
+`;
+
+const DivCentered = styled(Div)`
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export {
@@ -502,4 +566,8 @@ export {
   Input,
   InputPopupWrapper,
   PopupFilmsWrapper,
+  Form,
+  InputDiscover,
+  Select,
+  DivCentered,
 };

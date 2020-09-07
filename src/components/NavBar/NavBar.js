@@ -43,7 +43,7 @@ const NavBar = ({ menu }) => {
   }, [inputValue]);
 
   if (menu) {
-    const lists = menu.data.map((el) => {
+    const lists = menu.map((el) => {
       return (
         <List key={el.id}>
           <NavLink to={el.route} className="nav__link">
@@ -63,6 +63,7 @@ const NavBar = ({ menu }) => {
           ) : null}
 
           <SearchInput onInputChange={onInputChange} inputRef={inputRef} />
+          {/* <NavLink to={"dicover"}>Discover</NavLink> */}
           <Ul>{lists}</Ul>
         </Nav>
       </>

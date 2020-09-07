@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Header2,
-  ImageRotated,
-  Paragraph,
-} from "./../../styles/StyledComponents";
+import { Header2, ImageRotated } from "./../../styles/StyledComponents";
 import { popularUrl } from "./../../url/url";
 import servicePopular from "./../Services/servicePopular";
 import SliderBox from "./../SliderBox/SliderBox";
