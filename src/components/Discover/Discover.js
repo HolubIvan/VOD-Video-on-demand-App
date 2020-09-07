@@ -24,6 +24,8 @@ const Discover = () => {
   const [filmsData, setFilmsData] = useState(null);
   const [optionsOfSelect, setOptionsOfSelect] = useState(null);
   const [paramOfChange, setParamOfChange] = useState({});
+  const [paramWithGenres, setParamWithGenres] = useState([]);
+  const [paramWithoutGenres, setParamWithoutGenres] = useState([]);
 
   useEffect(() => {
     async function getDiscover() {
@@ -35,13 +37,27 @@ const Discover = () => {
     getDiscover();
   }, [paramOfChange]);
 
-  const onChangeEvent = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.getAttribute("name"));
+  const onInputChange = (e) => {
     setParamOfChange({
       ...paramOfChange,
       [e.target.getAttribute("name")]: e.target.value,
     });
+  };
+
+  const onSelectChange = (e) => {
+    if (e.target.getAttribute("name") === "with_genres") {
+      setParamWithGenres([...paramWithGenres, e.target.value]);
+      setParamOfChange({
+        ...paramOfChange,
+        with_genres: paramWithGenres,
+      });
+    } else {
+      setParamWithoutGenres([...paramWithoutGenres, e.target.value]);
+      setParamOfChange({
+        ...paramOfChange,
+        without_genres: paramWithoutGenres,
+      });
+    }
   };
 
   if (filmsData && optionsOfSelect) {
@@ -57,13 +73,13 @@ const Discover = () => {
               name="vote_average.gte"
               placeholder="From"
               type="number"
-              onChange={onChangeEvent}
+              onChange={onInputChange}
             />
             <InputDiscover
               name="vote_average.lte"
               placeholder="To"
               type="number"
-              onChange={onChangeEvent}
+              onChange={onInputChange}
             />
           </DivCentered>
           <DivCentered>
@@ -72,18 +88,18 @@ const Discover = () => {
               name="release_date.gte"
               placeholder="From"
               type="number"
-              onChange={onChangeEvent}
+              onChange={onInputChange}
             />
             <InputDiscover
               name="release_date.lte"
               placeholder="To"
               type="number"
-              onChange={onChangeEvent}
+              onChange={onInputChange}
             />
           </DivCentered>
           <DivCentered>
             <Paragraph>Include Genres</Paragraph>
-            <Select name="with_genres" onChange={onChangeEvent}>
+            <Select name="with_genres" onChange={onSelectChange}>
               <option value hidden>
                 Choose..
               </option>
@@ -92,7 +108,7 @@ const Discover = () => {
           </DivCentered>
           <DivCentered>
             <Paragraph>Exclude Genres</Paragraph>
-            <Select name="without_genres" onChange={onChangeEvent}>
+            <Select name="without_genres" onChange={onSelectChange}>
               <option value hidden>
                 Choose..
               </option>
@@ -108,7 +124,3 @@ const Discover = () => {
 };
 
 export default Discover;
-
-// display: flex;
-//     flex-direction: column;
-//     align-items: center;

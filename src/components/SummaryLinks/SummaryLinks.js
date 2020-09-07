@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Paragraph,
   SummaryLinksWrapper,
   ExternalLink,
 } from "./../../styles/StyledComponents";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { filmDetailUrl, imagesUrl } from "./../../url/url";
+import { filmDetailUrl } from "./../../url/url";
 import serviceAssetDetail from "./../Services/serviceAssetDetail";
 import {
   AssetWrapper,
