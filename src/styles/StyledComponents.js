@@ -505,10 +505,9 @@ const InputDiscover = styled(Input)`
 
 const Select = styled.select`
   width: 140px;
-  margin-top: 1rem;
   border: none;
   outline: none;
-  height: 30px;
+  height: 40px;
   background-color: ${({ theme }) => theme.colorOrange || "coral"};
   color: #fff;
   padding: 5px;

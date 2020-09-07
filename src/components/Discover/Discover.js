@@ -23,39 +23,40 @@ function getAssetsOfFilms(data) {
 const Discover = () => {
   const [filmsData, setFilmsData] = useState(null);
   const [optionsOfSelect, setOptionsOfSelect] = useState(null);
-  const [paramOfChange, setParamOfChange] = useState({});
-  const [paramWithGenres, setParamWithGenres] = useState([]);
-  const [paramWithoutGenres, setParamWithoutGenres] = useState([]);
+  const [params, setParams] = useState({
+    "vote_average.gte": "",
+    "vote_average.lte": "",
+    "release_date.gte": "",
+    "release_date.lte": "",
+    with_genres: [],
+    without_genres: [],
+  });
 
   useEffect(() => {
     async function getDiscover() {
-      const data = await serviceDiscovery(discoverUrl, paramOfChange);
+      const data = await serviceDiscovery(discoverUrl, params);
       const categories = await serviceCategories(categoriesUrl);
       setFilmsData(data);
       setOptionsOfSelect(categories);
     }
     getDiscover();
-  }, [paramOfChange]);
+  }, [params]);
 
   const onInputChange = (e) => {
-    setParamOfChange({
-      ...paramOfChange,
+    setParams({
+      ...params,
       [e.target.getAttribute("name")]: e.target.value,
     });
   };
 
   const onSelectChange = (e) => {
-    if (e.target.getAttribute("name") === "with_genres") {
-      setParamWithGenres([...paramWithGenres, e.target.value]);
-      setParamOfChange({
-        ...paramOfChange,
-        with_genres: paramWithGenres,
-      });
-    } else {
-      setParamWithoutGenres([...paramWithoutGenres, e.target.value]);
-      setParamOfChange({
-        ...paramOfChange,
-        without_genres: paramWithoutGenres,
+    if (!params[e.target.getAttribute("name")].includes(e.target.value)) {
+      setParams({
+        ...params,
+        [e.target.getAttribute("name")]: [
+          ...params[e.target.getAttribute("name")],
+          e.target.value,
+        ],
       });
     }
   };
@@ -99,7 +100,7 @@ const Discover = () => {
           </DivCentered>
           <DivCentered>
             <Paragraph>Include Genres</Paragraph>
-            <Select name="with_genres" onChange={onSelectChange}>
+            <Select name="with_genres" onChange={onSelectChange} multiple>
               <option value hidden>
                 Choose..
               </option>
@@ -108,7 +109,7 @@ const Discover = () => {
           </DivCentered>
           <DivCentered>
             <Paragraph>Exclude Genres</Paragraph>
-            <Select name="without_genres" onChange={onSelectChange}>
+            <Select name="without_genres" onChange={onSelectChange} multiple>
               <option value hidden>
                 Choose..
               </option>
