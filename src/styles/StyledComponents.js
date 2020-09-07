@@ -166,7 +166,7 @@ const Nav = styled.nav`
 
   @media (max-width: 700px) {
     flex-basis: 60%;
-    height: 135px;
+    height: 170px;
   }
 `;
 
@@ -181,7 +181,7 @@ const Ul = styled.ul`
     height: auto;
     flex-direction: column;
     position: absolute;
-    top: 0;
+    top: 4rem;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -422,6 +422,7 @@ const Input = styled.input`
   font-weight: 300;
   padding: 5px;
   z-index: 51;
+  width: 135px;
 
   ::placeholder {
     color: #fff;
@@ -431,6 +432,14 @@ const Input = styled.input`
     outline: none;
     border: none;
     border: 2px solid ${({ theme }) => theme.colorOrange || "coral"};
+  }
+
+  @media (max-width: 700px) {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-45%);
+    width: 110px;
   }
 `;
 

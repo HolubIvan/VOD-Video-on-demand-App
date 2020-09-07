@@ -60,9 +60,8 @@ const NavBar = ({ menu }) => {
 
           {popupShow && filmsOnInput ? (
             <SearchInputPopup filmsOnInput={filmsOnInput} />
-          ) : (
-            ""
-          )}
+          ) : null}
+
           <SearchInput onInputChange={onInputChange} inputRef={inputRef} />
           <Ul>{lists}</Ul>
         </Nav>

@@ -10,7 +10,6 @@ const SearchInputPopup = ({ filmsOnInput }) => {
   const films = filmsOnInput.map((el) => {
     return <AssetInCategorie filmData={el} key={el.id} />;
   });
-  console.log(films);
   return (
     <InputPopupWrapper>
       <PopupFilmsWrapper>{films}</PopupFilmsWrapper>
