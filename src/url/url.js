@@ -12,6 +12,7 @@ const popularUrl = `${urlExample}api/vod/popular`;
 const searchUrl = `${urlExample}api/vod/search?q={QUERY_STRING}`;
 const discoverUrl = `${urlExample}api/vod/discover`;
 const imagesUrl = "https://image.tmdb.org/t/p/w500";
+const imagesOriginalSizeUrl = "https://image.tmdb.org/t/p/original";
 
 export {
   menuUrl,
@@ -24,4 +25,5 @@ export {
   discoverUrl,
   imagesUrl,
   urlExample,
+  imagesOriginalSizeUrl,
 };

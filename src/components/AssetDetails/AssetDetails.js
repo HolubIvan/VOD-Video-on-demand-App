@@ -15,6 +15,7 @@ import {
   SpanSmall,
 } from "./../../styles/StyledComponents";
 import ModalWindow from "./../ModalWindow/ModalWindow";
+import defaultImage from "./../../img/default.png";
 
 function getCountries(el) {
   return el.data.production_countries.map((el) => {
