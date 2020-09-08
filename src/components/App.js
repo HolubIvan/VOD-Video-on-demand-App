@@ -7,8 +7,8 @@ import { Wrapper } from "./../styles/StyledComponents";
 import { menuUrl } from "./../url/url";
 import serviceMenu from "./Services/ServiceMenu";
 import serviceRoutes from "./Services/ServiceRoutes";
-import RoutesApp from "./Routes/RoutesApp";
 import NotFound from "./NotFound/NotFound";
+import getProperComponentData from "./../utils/getProperComponentData";
 
 class App extends React.Component {
   state = {
@@ -31,10 +31,25 @@ class App extends React.Component {
             <NavBar menu={this.state.menu ? this.state.menu : false} />
 
             <Switch>
-              <RoutesApp
-                routes={this.state.routes ? this.state.routes : false}
-              />
-              {/* <Route path="*" component={NotFound} /> */}
+              {this.state.routes &&
+                this.state.routes.map((el) => {
+                  const {
+                    id,
+                    exact,
+                    route,
+                    Component,
+                  } = getProperComponentData(el);
+
+                  return (
+                    <Route
+                      key={id}
+                      exact={exact}
+                      path={route}
+                      component={Component}
+                    />
+                  );
+                })}
+              <Route path="*" component={NotFound} />
             </Switch>
           </Router>
         </Wrapper>
@@ -44,8 +59,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// <Route exact path="/" component={Home} />
-// <Route path="/categories" component={Categories} />
-// <Route path="/popular" component={Popular} />
-// <Route path="*" component={NotFound} />
