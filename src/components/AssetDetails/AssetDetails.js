@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { filmDetailUrl, imagesUrl } from "./../../url/url";
+import { filmDetailUrl } from "./../../url/url";
 import serviceAssetDetail from "./../Services/serviceAssetDetail";
 import {
   AssetWrapper,
@@ -15,7 +15,7 @@ import {
   SpanSmall,
 } from "./../../styles/StyledComponents";
 import ModalWindow from "./../ModalWindow/ModalWindow";
-import defaultImage from "./../../img/default.png";
+import getImageOfAsset from "./../../utils/ImageOfAsset";
 
 function getCountries(el) {
   return el.data.production_countries.map((el) => {
@@ -50,13 +50,13 @@ const AssetDetails = () => {
   };
 
   if (assetDetail) {
-    const imagePath = `${imagesUrl}${assetDetail.data.poster_path}`;
+    const imagePath = getImageOfAsset(assetDetail.data);
     const countries = getCountries(assetDetail);
-
     return (
       <>
         <AssetWrapper>
           <ImageOfAsset src={imagePath}></ImageOfAsset>
+
           <Description>
             <Header3>
               {assetDetail.data.original_title} (
@@ -78,7 +78,9 @@ const AssetDetails = () => {
               <ParagraphLeftOrange>Countries:</ParagraphLeftOrange> {countries}
             </Div>
             <ParagraphLeftOrange>Overview:</ParagraphLeftOrange>
-            <ParagraphLeft>{assetDetail.data.overview}</ParagraphLeft>
+            <ParagraphLeft>
+              {assetDetail.data.overview.substring(0, 350)}...
+            </ParagraphLeft>
           </Description>
           <Button onClick={onAssetButtonClick}>Watch Trailers</Button>
           {isModalShow && (

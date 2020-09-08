@@ -12,6 +12,11 @@ export default async function serviceRoutes(url) {
       label: "Asset",
       route: "/asset/:id",
     },
+    {
+      id: "discover",
+      label: "Discover",
+      route: "/discover",
+    },
     // {
     //   id: "not-found",
     //   label: "NotFound",

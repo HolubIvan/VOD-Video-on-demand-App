@@ -9,7 +9,7 @@ const filmsByCategoryUrl = `${urlExample}/api/vod/category/{CATEGORY_ID}/assets`
 const filmDetailUrl = `${urlExample}api/vod/asset/`;
 const videosOfFilmYoutubeUrl = `${urlExample}api/vod/asset/577922/videos`;
 const popularUrl = `${urlExample}api/vod/popular`;
-const searchUrl = `${urlExample}api/vod/search?q={QUERY_STRING}`;
+const searchUrl = `${urlExample}api/vod/search?q=`;
 const discoverUrl = `${urlExample}api/vod/discover`;
 const imagesUrl = "https://image.tmdb.org/t/p/w500";
 const imagesOriginalSizeUrl = "https://image.tmdb.org/t/p/original";

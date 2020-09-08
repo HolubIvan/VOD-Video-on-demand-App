@@ -1,6 +1,7 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ParagraphBig } from "./../../styles/StyledComponents";
+import "./ScrollComponent.scss";
 
 const ScrollComponent = ({ filmsArray, page, setPage, filmsOfCategorie }) => {
   return (
@@ -18,7 +19,7 @@ const ScrollComponent = ({ filmsArray, page, setPage, filmsOfCategorie }) => {
           Yay! You have seen it all
         </ParagraphBig>
       }
-      style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)" }}
+      className="scroll-component"
     >
       {filmsArray}
     </InfiniteScroll>

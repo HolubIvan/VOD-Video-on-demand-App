@@ -17,6 +17,7 @@ function getFilms(el) {
 const MoviesByCategory = () => {
   const { category_id } = useParams();
 
+  // eslint-disable-next-line no-unused-vars
   const [idOfCategorie, setIdOfCategorie] = useState(category_id);
   const [filmsOfCategorie, setFilmsOfCategorie] = useState(null);
   const [page, setPage] = useState(1);
