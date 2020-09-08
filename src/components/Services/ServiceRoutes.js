@@ -17,11 +17,6 @@ export default async function serviceRoutes(url) {
       label: "Discover",
       route: "/discover",
     },
-    // {
-    //   id: "not-found",
-    //   label: "NotFound",
-    //   route: "*",
-    // },
   ];
   const data = await new DataLoader(url).get();
   const routes = [...data.data, ...staticRoutes];
